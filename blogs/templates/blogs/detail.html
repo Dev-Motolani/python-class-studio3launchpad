@@ -1,0 +1,14 @@
+<!--blogs/templates/blogs/home.html-->
+{% block content %}
+
+{% for post in posts %}
+<section>
+<h1>{{post.title}}</h1>
+<p>{{post.body}}</p>
+<p>{{post.date_created}}</p>
+<p>{{post.date_updated}}</p>
+<p>{{post.author}}</p>
+</section>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,11 @@
+<!--blogs/templates/blogs/home.html-->
+{% block content %}
+
+{% for post in posts %}
+<section>
+<p>{{post.date_created}} &nbsp; &nbsp; <a href = "{% url 'detail' post.id %}">{{post.title}}</a></p>
+<p>{{post.body}}</p>
+</section>
+{% endfor %}
+
+{% endblock content %}
