@@ -3,12 +3,15 @@
 
 {% for post in posts %}
 <section>
-<h1>{{post.title}}</h1>
-<p>{{post.body}}</p>
-<p>{{post.date_created}}</p>
-<p>{{post.date_updated}}</p>
-<p>{{post.author}}</p>
+    <h1>{{post.title}}</h1>
+    <p>{{post.body}}</p>
+    <p>Created on {{post.date_created}}</p>
+    <p>Last Updated{{post.date_updated}}</p>
+    <p>By{{post.author}}</p>
 </section>
+<p><a href="{% url 'post-update' post.id %}">Edit</a>&emsp;
+<a href="{% url 'post-delete' post.id %}">Delete</a>
+</p>
 {% endfor %}
 
 {% endblock content %}

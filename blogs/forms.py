@@ -7,3 +7,10 @@ class BlogCreateForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'body', 'author']
+
+
+
+class BlogChangeForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'body']

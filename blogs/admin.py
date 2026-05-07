@@ -4,7 +4,8 @@ from django.contrib import admin
 from .models import Post
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('id','title', 'body', 'date_created', 'date_updated','author')
+    list_display = ('id','title', 'body', 'date_created',
+     'date_updated','author')
 
 
 admin.site.register(Post, PostAdmin)
