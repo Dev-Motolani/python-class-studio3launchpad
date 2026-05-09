@@ -1,16 +1,24 @@
-{% block content %}
-<h1>Do you want to delete this blog Post</h1>
-<section>
-<h1>{{post.title}}</h1>
-<p>{{post.body}}</p>
-<p>Created on {{post.date_created}}</p>
-<p>Last Updated{{post.date_updated}}</p>
-<p>By{{post.author}}</p>
-</section>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Yes, delete</button>
-</form>
+{% extends 'blogs/base.html' %}
 
+{% block title %}Delete Blog Post{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>Do you want to delete this blog Post?</h1>
+    <section class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.body}}</p>
+            <p class="text-muted">Created on {{post.date_created}}</p>
+            <p class="text-muted">Last Updated {{post.date_updated}}</p>
+            <p class="text-muted">By {{post.author}}</p>
+        </div>
+    </section>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <a href="{% url 'detail' post.pk %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
 {% endblock content %}

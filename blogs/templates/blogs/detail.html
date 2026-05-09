@@ -1,17 +1,24 @@
 <!--blogs/templates/blogs/home.html-->
+{% extends 'blogs/base.html' %}
+{% block title %} {{ post.title }} {% endblock title %}
 {% block content %}
 
-{% for post in posts %}
-<section>
-    <h1>{{post.title}}</h1>
-    <p>{{post.body}}</p>
-    <p>Created on {{post.date_created}}</p>
-    <p>Last Updated{{post.date_updated}}</p>
-    <p>By{{post.author}}</p>
-</section>
-<p><a href="{% url 'post-update' post.id %}">Edit</a>&emsp;
+<div class = "container">
+<div class =" card">
+<div class ="card-header mb-3">{{ post.title }} &emsp;
+<a href="{% url 'post-update' post.id %}">Edit</a> |
 <a href="{% url 'post-delete' post.id %}">Delete</a>
-</p>
-{% endfor %}
+</div>
+<div class ="card-body">
+<div class ="card-subtitle">By {{ post.author }}</div>
+<div class ="card-text">
+<p>{{ post.body }}</p>
+<p>Created on <em>{{ post.date_created }}</em> | Last Updated <em>{{ post.date_updated }}</em></p>
+</div>
+</div>
+</div>
+
+</div>
+
 
 {% endblock content %}

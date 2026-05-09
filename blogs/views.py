@@ -1,5 +1,5 @@
 from django.views.generic import (ListView, DetailView, CreateView,
- UpdateView, DeleteView)
+ UpdateView, DeleteView, TemplateView)
 from .models import Post
 from .forms import BlogCreateForm, BlogChangeForm
 from django.urls import reverse_lazy
@@ -39,3 +39,7 @@ class PostDeleteView(DeleteView):
     model = Post
     template_name = 'blogs/delete.html'
     success_url = reverse_lazy('home')
+
+
+class AboutView(TemplateView):
+    template_name = 'blogs/about.html'
