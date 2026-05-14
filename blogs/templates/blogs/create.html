@@ -1,14 +1,21 @@
 {% extends 'blogs/base.html' %}
 
-{% block title %}Add Blog Post{% endblock title %}
+{% load django_bootstrap5 %}
+
 
 {% block content %}
 <div class="container">
-    <h1>Add Blog Post</h1>
-    <form method="post">
+    <div class="card" w-75 mx-auto border-0 shadow-sm"> 
+    <div class="'card-header'">
+        Sign Up
+    </div>
+    <div class="card-body">
+    <form method='post'>
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Save</button>
+        {% bootstrap_button button_type='submit' content='Ok' %}
+        {% bootstrap_button button_type='reset' content='Cancel' %}
     </form>
+    </div>
+    </div>
 </div>
 {% endblock content %}
